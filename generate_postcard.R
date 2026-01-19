@@ -21,7 +21,7 @@ create_postcard <- function(name = "index.Rmd",
                            author = "Your Name",
                            email = "your.email@example.com",
                            github = "yourusername",
-                           twitter = "yourusername",
+                           linkedin = "yourusername",
                            open_file = TRUE) {
   
   # Install required packages
@@ -81,8 +81,8 @@ create_postcard <- function(name = "index.Rmd",
           sprintf('    url: "mailto:%s"', email),
           sprintf('  - label: GitHub'),
           sprintf('    url: "https://github.com/%s"', github),
-          sprintf('  - label: Twitter'),
-          sprintf('    url: "https://twitter.com/%s"', twitter)
+          sprintf('  - label: Linkedin'),
+          sprintf('    url: "https://linkedin.com/%s"', linkedin)
         )
         content <- c(content[1:(yaml_end-1)], new_links, content[yaml_end:length(content)])
       }
@@ -160,8 +160,8 @@ main <- function() {
     github <- readline(prompt = "Enter your GitHub username: ")
     if (github == "") github <- "yourusername"
     
-    twitter <- readline(prompt = "Enter your Twitter username: ")
-    if (twitter == "") twitter <- "yourusername"
+    linkedin <- readline(prompt = "Enter your Linkedin username: ")
+    if (linkedin == "") linkedin <- "yourusername"
     
     create_postcard(
       template = template,
@@ -169,7 +169,7 @@ main <- function() {
       author = name,
       email = email,
       github = github,
-      twitter = twitter
+      linkedin = linkedin
     )
     
     cat("\nWould you like to render the postcard now? (y/n): ")
